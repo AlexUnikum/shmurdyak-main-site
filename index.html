@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Шмурдяк</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0a0a0a;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 640px;
+            width: 100%;
+            background-color: #141414;
+            padding: 50px 35px;
+            border-radius: 32px;
+            border: 1px solid #2a2a2a;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9);
+            text-align: center;
+            transition: all 0.2s;
+        }
+
+        .avatar {
+            font-size: 72px;
+            display: block;
+            margin-bottom: 12px;
+            filter: drop-shadow(0 0 20px rgba(255, 120, 0, 0.2));
+        }
+
+        h1 {
+            color: #ffffff;
+            font-size: 36px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-shadow: 0 0 30px rgba(255, 120, 0, 0.1);
+        }
+
+        .subtitle {
+            color: #aaaaaa;
+            font-size: 18px;
+            margin-top: 8px;
+            margin-bottom: 32px;
+            border-bottom: 1px solid #2a2a2a;
+            padding-bottom: 20px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            background-color: #1e1e1e;
+            color: #ffffff;
+            padding: 16px 14px;
+            border-radius: 16px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+            border: 1px solid #333;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 0 #0a0a0a;
+        }
+
+        .btn:hover {
+            background-color: #2c2c2c;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 0 #0a0a0a;
+            border-color: #555;
+        }
+
+        .btn .icon {
+            font-size: 24px;
+            width: 32px;
+            text-align: center;
+        }
+
+        .btn .label {
+            flex: 1;
+            text-align: left;
+        }
+
+        .btn .badge {
+            background-color: #ff6a00;
+            color: #0a0a0a;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 2px 10px;
+            border-radius: 30px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .footer {
+            margin-top: 40px;
+            font-size: 14px;
+            color: #555;
+            border-top: 1px solid #222;
+            padding-top: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        .footer a {
+            color: #777;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer a:hover {
+            color: #aaa;
+        }
+
+        @media (max-width: 500px) {
+            .container {
+                padding: 30px 18px;
+            }
+            h1 {
+                font-size: 28px;
+            }
+            .btn {
+                font-size: 16px;
+                padding: 14px 12px;
+            }
+            .avatar {
+                font-size: 56px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <span class="avatar">🖤</span>
+    <h1>Шмурдяк</h1>
+    <div class="subtitle">Стример · Оболдуй</div>
+
+    <div class="btn-group">
+        <a href="#" class="btn" id="discordBtn">
+            <span class="icon">💬</span>
+            <span class="label">Discord</span>
+            <span class="badge">копировать</span>
+        </a>
+        <a href="#" class="btn" id="telegramBtn">
+            <span class="icon">✈️</span>
+            <span class="label">Telegram</span>
+            <span class="badge">копировать</span>
+        </a>
+        <a href="#" class="btn" id="steamBtn">
+            <span class="icon">🎮</span>
+            <span class="label">Steam</span>
+            <span class="badge">копировать</span>
+        </a>
+    </div>
+
+    <div class="footer">
+        🌙 Стримы — когда ночь становится днём
+    </div>
+</div>
+
+<script>
+    const contacts = {
+        discord: "ishak8_",
+        telegram: "@Shprotina109",
+        steam: "https://steamcommunity.com/id/alexunikum/"
+    };
+
+    function copyText(text) {
+        navigator.clipboard.writeText(text).then(() => {
+            alert('✅ Скопировано: ' + text);
+        }).catch(() => {
+            alert('❌ Не удалось скопировать. Попробуй вручную.');
+        });
+    }
+
+    document.getElementById('discordBtn').addEventListener('click', function(e) {
+        e.preventDefault();
+        copyText(contacts.discord);
+    });
+
+    document.getElementById('telegramBtn').addEventListener('click', function(e) {
+        e.preventDefault();
+        copyText(contacts.telegram);
+    });
+
+    document.getElementById('steamBtn').addEventListener('click', function(e) {
+        e.preventDefault();
+        copyText(contacts.steam);
+    });
+</script>
+
+</body>
+</html>
