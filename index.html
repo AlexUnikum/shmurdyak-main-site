@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Шмурдяк</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Шмурдяк · Вайбкодер</title>
     <style>
         * {
             margin: 0;
@@ -12,241 +12,329 @@
         }
 
         body {
-            background-color: #0a0a0a;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at 30% 40%, #1a1a2e, #0a0a0a 80%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             padding: 20px;
         }
 
-        .container {
+        .glass {
             max-width: 640px;
             width: 100%;
-            background-color: #141414;
-            padding: 50px 35px;
-            border-radius: 32px;
-            border: 1px solid #2a2a2a;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9);
-            text-align: center;
-            transition: all 0.2s;
+            background: rgba(20, 20, 30, 0.7);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 48px;
+            padding: 44px 38px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 106, 0, 0.06);
+            opacity: 0;
+            animation: fadeGlass 0.9s ease forwards;
+        }
+
+        @keyframes fadeGlass {
+            0% {
+                opacity: 0;
+                transform: scale(0.96) translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
         }
 
         .avatar {
             font-size: 72px;
             display: block;
-            margin-bottom: 12px;
-            filter: drop-shadow(0 0 20px rgba(255, 120, 0, 0.2));
+            text-align: center;
+            margin-bottom: 6px;
+            animation: pulse 3s infinite ease-in-out;
+            filter: drop-shadow(0 0 30px rgba(255, 106, 0, 0.25));
         }
 
-        h1 {
-            color: #ffffff;
-            font-size: 36px;
+        @keyframes pulse {
+            0%,
+            100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.04);
+            }
+        }
+
+        .title {
+            text-align: center;
+            font-size: 40px;
             font-weight: 700;
             letter-spacing: 2px;
-            text-shadow: 0 0 30px rgba(255, 120, 0, 0.1);
+            color: #ffffff;
+            text-shadow: 0 0 40px rgba(255, 106, 0, 0.08);
+            margin-bottom: 2px;
         }
 
         .subtitle {
-            color: #aaaaaa;
+            text-align: center;
             font-size: 18px;
-            margin-top: 8px;
-            margin-bottom: 32px;
-            border-bottom: 1px solid #2a2a2a;
-            padding-bottom: 20px;
             font-weight: 300;
-            letter-spacing: 1px;
+            color: #aaaaaa;
+            letter-spacing: 2px;
+            margin-bottom: 32px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            padding-bottom: 18px;
+        }
+
+        .subtitle span {
+            color: #ff6a00;
+            font-weight: 500;
         }
 
         .btn-group {
             display: flex;
             flex-direction: column;
-            gap: 14px;
+            gap: 12px;
+            margin-bottom: 28px;
         }
 
         .btn {
             display: flex;
             align-items: center;
-            justify-content: center;
             gap: 14px;
-            background-color: #1e1e1e;
-            color: #ffffff;
-            padding: 16px 14px;
-            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 16px 20px;
+            border-radius: 20px;
             text-decoration: none;
-            font-size: 18px;
+            color: #ffffff;
+            font-size: 17px;
             font-weight: 500;
-            border: 1px solid #333;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 0 #0a0a0a;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(4px);
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 0 rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            animation: fadeUp 0.6s ease forwards;
+        }
+
+        .btn:nth-child(1) {
+            animation-delay: 0.15s;
+        }
+        .btn:nth-child(2) {
+            animation-delay: 0.3s;
+        }
+        .btn:nth-child(3) {
+            animation-delay: 0.45s;
+        }
+
+        @keyframes fadeUp {
+            0% {
+                opacity: 0;
+                transform: translateY(14px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .btn:hover {
-            background-color: #2c2c2c;
+            background: rgba(255, 106, 0, 0.08);
+            border-color: rgba(255, 106, 0, 0.25);
             transform: translateY(-2px);
-            box-shadow: 0 6px 0 #0a0a0a;
-            border-color: #555;
+            box-shadow: 0 8px 20px rgba(255, 106, 0, 0.08);
         }
 
         .btn:active {
-            transform: scale(0.96);
-            box-shadow: 0 2px 0 #0a0a0a;
+            transform: scale(0.97);
         }
 
         .btn .icon {
             font-size: 24px;
-            width: 32px;
+            width: 36px;
             text-align: center;
         }
 
-        .btn .label {
-            flex: 1;
-            text-align: left;
-        }
-
         .btn .badge {
-            background-color: #ff6a00;
+            margin-left: auto;
+            background: #ff6a00;
             color: #0a0a0a;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 700;
-            padding: 2px 10px;
+            padding: 2px 12px;
             border-radius: 30px;
             text-transform: uppercase;
+            letter-spacing: 0.6px;
+        }
+
+        .cta-btn {
+            display: block;
+            text-align: center;
+            background: #ff6a00;
+            color: #0a0a0a;
+            font-weight: 700;
+            font-size: 17px;
+            padding: 16px;
+            border-radius: 30px;
+            text-decoration: none;
             letter-spacing: 0.5px;
+            transition: 0.25s ease;
+            box-shadow: 0 8px 24px rgba(255, 106, 0, 0.15);
+            opacity: 0;
+            animation: fadeUp 0.6s ease forwards;
+            animation-delay: 0.6s;
+        }
+
+        .cta-btn:hover {
+            background: #ff8c2a;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(255, 106, 0, 0.25);
+        }
+
+        .cta-note {
+            text-align: center;
+            font-size: 13px;
+            color: #666;
+            margin-top: 10px;
+            opacity: 0;
+            animation: fadeUp 0.6s ease forwards;
+            animation-delay: 0.7s;
         }
 
         .footer {
-            margin-top: 40px;
-            font-size: 14px;
+            margin-top: 32px;
+            text-align: center;
+            font-size: 13px;
             color: #555;
-            border-top: 1px solid #222;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
             padding-top: 20px;
-            letter-spacing: 0.5px;
+            opacity: 0;
+            animation: fadeUp 0.6s ease forwards;
+            animation-delay: 0.8s;
         }
 
         .footer a {
             color: #777;
             text-decoration: none;
-            transition: color 0.2s;
+            transition: 0.2s;
         }
 
         .footer a:hover {
             color: #aaa;
         }
 
-        .toast {
-            position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%) translateY(100px);
-            background-color: #2a2a2a;
-            color: #fff;
-            padding: 14px 28px;
-            border-radius: 16px;
-            border: 1px solid #ff6a00;
-            font-size: 16px;
-            font-weight: 500;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
-            opacity: 0;
-            transition: all 0.4s ease;
-            pointer-events: none;
-            z-index: 999;
-        }
-
-        .toast.show {
-            opacity: 1;
-            transform: translateX(-50%) translateY(0);
-        }
-
         @media (max-width: 500px) {
-            .container {
-                padding: 30px 18px;
+            .glass {
+                padding: 30px 20px;
             }
-            h1 {
-                font-size: 28px;
+            .title {
+                font-size: 30px;
             }
             .btn {
-                font-size: 16px;
-                padding: 14px 12px;
+                font-size: 15px;
+                padding: 14px 16px;
             }
-            .avatar {
-                font-size: 56px;
-            }
-        }
+        }.toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: #2a2a2a;
+    color: #fff;
+    padding: 14px 28px;
+    border-radius: 16px;
+    border: 1px solid #ff6a00;
+    font-size: 16px;
+    font-weight: 500;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+    opacity: 0;
+    transition: all 0.4s ease;
+    pointer-events: none;
+    z-index: 999;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
     </style>
 </head>
 <body>
 
-<div class="container">
-    <span class="avatar">🖤</span>
-    <h1>Шмурдяк</h1>
-    <div class="subtitle">Вайбкодер</div>
+    <div class="glass">
 
-    <div class="btn-group">
-        <a href="#" class="btn" id="discordBtn">
-            <span class="icon">💬</span>
-            <span class="label">Discord</span>
-            <span class="badge">копировать</span>
+        <span class="avatar">🖤</span>
+
+        <div class="title">Шмурдяк</div>
+        <div class="subtitle"><span>Вайб</span>кодер</div>
+
+        <div class="btn-group">
+            <a href="#" class="btn" id="discordBtn">
+                <span class="icon">💬</span>
+                <span>Discord</span>
+                <span class="badge">копировать</span>
+            </a>
+            <a href="#" class="btn" id="telegramBtn">
+                <span class="icon">✈️</span>
+                <span>Telegram</span>
+                <span class="badge">копировать</span>
+            </a>
+            <a href="#" class="btn" id="steamBtn">
+                <span class="icon">🎮</span>
+                <span>Steam</span>
+                <span class="badge">копировать</span>
+            </a>
+        </div>
+
+        <a href="https://t.me/Shprotina109" target="_blank" class="cta-btn">
+            📩 Быстрая связь через Telegram
         </a>
-        <a href="#" class="btn" id="telegramBtn">
-            <span class="icon">✈️</span>
-            <span class="label">Telegram</span>
-            <span class="badge">копировать</span>
-        </a>
-        <a href="#" class="btn" id="steamBtn">
-            <span class="icon">🎮</span>
-            <span class="label">Steam</span>
-            <span class="badge">копировать</span>
-        </a>
+        <div class="cta-note">Отвечаю обычно в течение часа</div>
+
+        <div class="footer">
+            <p>Сделано <a href="https://alexunikum.github.io/shmurdyak-main-site/" target="_blank">Шмурдяком</a> — все работы индивидуальны</p>
+        </div>
+
     </div>
-
-    <div class="footer">
-        <p>Сделано <a href="https://alexunikum.github.io/shmurdyak-main-site/" target="_blank">Шмурдяком</a> — все работы индивидуальны</p>
-    </div>
-</div>
-
 <div id="toast" class="toast">✅ Скопировано!</div>
+    <script>
+        const contacts = {
+            discord: "ishak8_",
+            telegram: "@Shprotina109",
+            steam: "https://steamcommunity.com/id/alexunikum/"
+        };
 
-<script>
-    const contacts = {
-        discord: "ishak8_",
-        telegram: "@Shprotina109",
-        steam: "https://steamcommunity.com/id/alexunikum/"
-    };
+        function showToast(text) {
+            const toast = document.getElementById('toast');
+            toast.textContent = '✅ ' + text;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 1500);
+        }
 
-    function showToast(text) {
-        const toast = document.getElementById('toast');
-        toast.textContent = '✅ ' + text;
-        toast.classList.add('show');
-        setTimeout(() => {
-            toast.classList.remove('show');
-        }, 1500);
-    }
+        function copyText(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                showToast('Скопировано: ' + text);
+            }).catch(() => {
+                showToast('❌ Не удалось скопировать');
+            });
+        }
 
-    function copyText(text) {
-        navigator.clipboard.writeText(text).then(() => {
-            showToast('Скопировано: ' + text);
-        }).catch(() => {
-            showToast('❌ Не удалось скопировать');
+        document.getElementById('discordBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            copyText(contacts.discord);
         });
-    }
 
-    document.getElementById('discordBtn').addEventListener('click', function(e) {
-        e.preventDefault();
-        copyText(contacts.discord);
-    });
+        document.getElementById('telegramBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            copyText(contacts.telegram);
+        });
 
-    document.getElementById('telegramBtn').addEventListener('click', function(e) {
-        e.preventDefault();
-        copyText(contacts.telegram);
-    });
-
-    document.getElementById('steamBtn').addEventListener('click', function(e) {
-        e.preventDefault();
-        copyText(contacts.steam);
-    });
-</script>
+        document.getElementById('steamBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            copyText(contacts.steam);
+        });
+    </script>
 
 </body>
 </html>
