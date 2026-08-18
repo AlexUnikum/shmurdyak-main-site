@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Шмурдяк · Вайбкодер</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <meta name="description" content="Сайты, каталоги, генераторы — от 5 500 ₽. Вайбкодер Шмурдяк. Быстро, дёшево, индивидуально." />
     <style>
         * {
@@ -99,6 +99,15 @@
             margin-bottom: 28px;
         }
 
+        .btn-group .section-label {
+            font-size: 13px;
+            color: #666;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-top: 4px;
+            margin-bottom: 2px;
+        }
+
         .btn {
             display: flex;
             align-items: center;
@@ -118,14 +127,17 @@
             animation: fadeUp 0.6s ease forwards;
         }
 
-        .btn:nth-child(1) {
+        .btn:nth-child(2) {
             animation-delay: 0.15s;
         }
-        .btn:nth-child(2) {
+        .btn:nth-child(3) {
             animation-delay: 0.3s;
         }
-        .btn:nth-child(3) {
+        .btn:nth-child(5) {
             animation-delay: 0.45s;
+        }
+        .btn:nth-child(6) {
+            animation-delay: 0.6s;
         }
 
         @keyframes fadeUp {
@@ -168,6 +180,18 @@
             letter-spacing: 0.6px;
         }
 
+        .btn .badge-gray {
+            margin-left: auto;
+            background: rgba(255, 255, 255, 0.06);
+            color: #888;
+            font-size: 11px;
+            font-weight: 500;
+            padding: 2px 12px;
+            border-radius: 30px;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+        }
+
         .cta-btn {
             display: block;
             text-align: center;
@@ -183,7 +207,8 @@
             box-shadow: 0 8px 24px rgba(255, 106, 0, 0.15);
             opacity: 0;
             animation: fadeUp 0.6s ease forwards;
-            animation-delay: 0.6s;
+            animation-delay: 0.7s;
+            margin-bottom: 6px;
         }
 
         .cta-btn:hover {
@@ -192,14 +217,52 @@
             box-shadow: 0 12px 32px rgba(255, 106, 0, 0.25);
         }
 
+        .cta-btn.secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: none;
+            animation-delay: 0.75s;
+        }
+
+        .cta-btn.secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+
         .cta-note {
             text-align: center;
             font-size: 13px;
             color: #666;
-            margin-top: 10px;
+            margin-bottom: 18px;
             opacity: 0;
             animation: fadeUp 0.6s ease forwards;
-            animation-delay: 0.7s;
+            animation-delay: 0.8s;
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: #2a2a2a;
+            color: #fff;
+            padding: 14px 28px;
+            border-radius: 16px;
+            border: 1px solid #ff6a00;
+            font-size: 16px;
+            font-weight: 500;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+            opacity: 0;
+            transition: all 0.4s ease;
+            pointer-events: none;
+            z-index: 999;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
         }
 
         .footer {
@@ -211,7 +274,7 @@
             padding-top: 20px;
             opacity: 0;
             animation: fadeUp 0.6s ease forwards;
-            animation-delay: 0.8s;
+            animation-delay: 0.9s;
         }
 
         .footer a {
@@ -235,29 +298,7 @@
                 font-size: 15px;
                 padding: 14px 16px;
             }
-        }.toast {
-    position: fixed;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%) translateY(100px);
-    background: #2a2a2a;
-    color: #fff;
-    padding: 14px 28px;
-    border-radius: 16px;
-    border: 1px solid #ff6a00;
-    font-size: 16px;
-    font-weight: 500;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
-    opacity: 0;
-    transition: all 0.4s ease;
-    pointer-events: none;
-    z-index: 999;
-}
-
-.toast.show {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
-}
+        }
     </style>
 </head>
 <body>
@@ -269,7 +310,10 @@
         <div class="title">Шмурдяк</div>
         <div class="subtitle"><span>Вайб</span>кодер</div>
 
+        <!-- ===== СЕКЦИЯ 1 — КОНТАКТЫ ===== -->
         <div class="btn-group">
+            <div class="section-label">📲 Контакты</div>
+
             <a href="#" class="btn" id="discordBtn">
                 <span class="icon">💬</span>
                 <span>Discord</span>
@@ -280,16 +324,37 @@
                 <span>Telegram</span>
                 <span class="badge">копировать</span>
             </a>
-            <a href="#" class="btn" id="steamBtn">
+            <a href="https://steamcommunity.com/id/alexunikum/" target="_blank" rel="noopener noreferrer" class="btn" id="steamBtn">
                 <span class="icon">🎮</span>
                 <span>Steam</span>
                 <span class="badge">копировать</span>
             </a>
         </div>
 
+        <!-- ===== СЕКЦИЯ 2 — САЙТЫ ===== -->
+        <div class="btn-group">
+            <div class="section-label">🌐 Сайты</div>
+
+            <a href="https://alexunikum.github.io/faq/" target="_blank" rel="noopener noreferrer" class="btn" id="faqBtn">
+                <span class="icon">❓</span>
+                <span>FAQ</span>
+                <span class="badge-gray">перейти</span>
+            </a>
+            <a href="https://alexunikum.github.io/shmurdyak-services/" target="_blank" rel="noopener noreferrer" class="btn" id="servicesBtn">
+                <span class="icon">🛠️</span>
+                <span>Услуги</span>
+                <span class="badge-gray">перейти</span>
+            </a>
+        </div>
+
+        <!-- ===== CTA БЛОК ===== -->
         <a href="https://t.me/Shprotina109" target="_blank" rel="noopener noreferrer" class="cta-btn">
             📩 Быстрая связь через Telegram
         </a>
+        <a href="https://wa.me/79049947956" target="_blank" rel="noopener noreferrer" class="cta-btn secondary">
+            📲 Написать в WhatsApp
+        </a>
+
         <div class="cta-note">Отвечаю обычно в течение часа</div>
 
         <div class="footer">
@@ -297,7 +362,9 @@
         </div>
 
     </div>
-<div id="toast" class="toast">✅ Скопировано!</div>
+
+    <div id="toast" class="toast">✅ Скопировано!</div>
+
     <script>
         const contacts = {
             discord: "ishak8_",
