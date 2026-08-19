@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Шмурдяк · Вайбкодер</title>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-    <meta name="description" content="Сайты, каталоги, генераторы — от 5 500 ₽. Вайбкодер Шмурдяк. Быстро, дёшево, индивидуально." />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Шмурдяк · визитка</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <style>
         * {
             margin: 0;
@@ -16,262 +15,235 @@
         body {
             min-height: 100vh;
             display: flex;
-            align-items: center;
             justify-content: center;
-            background: radial-gradient(circle at 30% 40%, #1a1a2e, #0a0a0a 80%);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            padding: 20px;
-        }
-
-        .glass {
-            max-width: 640px;
-            width: 100%;
-            background: rgba(20, 20, 30, 0.7);
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 48px;
-            padding: 44px 38px;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 106, 0, 0.06);
-            opacity: 0;
-            animation: fadeGlass 0.9s ease forwards;
-        }
-
-        @keyframes fadeGlass {
-            0% {
-                opacity: 0;
-                transform: scale(0.96) translateY(20px);
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1) translateY(0);
-            }
-        }
-
-        .avatar {
-            font-size: 72px;
-            display: block;
-            text-align: center;
-            margin-bottom: 6px;
-            animation: pulse 3s infinite ease-in-out;
-            filter: drop-shadow(0 0 30px rgba(255, 106, 0, 0.25));
-        }
-
-        @keyframes pulse {
-            0%,
-            100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.04);
-            }
-        }
-
-        .title {
-            text-align: center;
-            font-size: 40px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            color: #ffffff;
-            text-shadow: 0 0 40px rgba(255, 106, 0, 0.08);
-            margin-bottom: 2px;
-        }
-
-        .subtitle {
-            text-align: center;
-            font-size: 18px;
-            font-weight: 300;
-            color: #aaaaaa;
-            letter-spacing: 2px;
-            margin-bottom: 32px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-            padding-bottom: 18px;
-        }
-
-        .subtitle span {
-            color: #ff6a00;
-            font-weight: 500;
-        }
-
-        .fade-item {
-            opacity: 0;
-            animation: fadeUp 0.5s ease forwards;
+            align-items: center;
+            background: #080606;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            padding: 30px 20px;
+            color: #ddd;
+            background-image: radial-gradient(ellipse at 20% 40%, #1a0e0c, #080606 90%);
         }
 
         @keyframes fadeUp {
             0% {
                 opacity: 0;
-                transform: translateY(14px);
+                transform: translateY(18px) scale(0.97);
             }
             100% {
                 opacity: 1;
-                transform: translateY(0);
+                transform: translateY(0) scale(1);
             }
+        }
+
+        .fade-item {
+            opacity: 0;
+            animation: fadeUp 0.6s ease forwards;
+        }
+
+        .wrap {
+            max-width: 700px;
+            width: 100%;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 16px;
+            border-bottom: 2px solid #1e1210;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            color: #eee;
+        }
+
+        .logo span {
+            color: #ff3b00;
+            text-shadow: 0 0 40px rgba(255, 59, 0, 0.6), 0 0 80px rgba(255, 59, 0, 0.2);
+        }
+
+        .nav {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav a {
+            color: #7a6a6a;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.25s;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 4px;
+            letter-spacing: 0.5px;
+        }
+
+        .nav a:hover {
+            color: #ff3b00;
+            border-bottom-color: #ff3b00;
+            text-shadow: 0 0 20px rgba(255, 59, 0, 0.2);
+        }
+
+        .content {
+            margin-top: 40px;
+        }
+
+        .content h1 {
+            font-size: 42px;
+            font-weight: 800;
+            color: #f0e0e0;
+            letter-spacing: -0.5px;
+            margin-bottom: 6px;
+        }
+
+        .content h1 span {
+            color: #ff3b00;
+            text-shadow: 0 0 40px rgba(255, 59, 0, 0.4);
+        }
+
+        .content .sub {
+            font-size: 18px;
+            color: #b0a0a0;
+            font-weight: 300;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #1a0e0c;
+            padding-bottom: 18px;
         }
 
         .btn-group {
             display: flex;
             flex-direction: column;
             gap: 12px;
-            margin-bottom: 28px;
-        }
-
-        .btn-group .section-label {
-            font-size: 13px;
-            color: #666;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-top: 4px;
-            margin-bottom: 2px;
         }
 
         .btn {
             display: flex;
             align-items: center;
             gap: 14px;
-            background: rgba(255, 255, 255, 0.03);
+            background: rgba(14, 10, 10, 0.6);
             padding: 16px 20px;
-            border-radius: 20px;
             text-decoration: none;
-            color: #ffffff;
-            font-size: 17px;
+            color: #ddd;
             font-weight: 500;
-            border: 1px solid rgba(255, 255, 255, 0.04);
-            backdrop-filter: blur(4px);
-            transition: all 0.25s ease;
-            box-shadow: 0 4px 0 rgba(0, 0, 0, 0.2);
+            font-size: 16px;
+            border: 1px solid #1e1210;
+            border-radius: 12px;
+            backdrop-filter: blur(2px);
+            transition: 0.25s;
         }
 
         .btn:hover {
-            background: rgba(255, 106, 0, 0.08);
-            border-color: rgba(255, 106, 0, 0.25);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(255, 106, 0, 0.08);
-        }
-
-        .btn:active {
-            transform: scale(0.97);
+            border-color: #ff3b00;
+            background: rgba(14, 10, 10, 0.8);
+            box-shadow: 0 0 30px rgba(255, 59, 0, 0.06);
+            transform: translateX(4px);
         }
 
         .btn .icon {
-            font-size: 24px;
-            width: 36px;
+            font-size: 22px;
+            width: 32px;
             text-align: center;
         }
 
         .btn .badge {
             margin-left: auto;
-            background: #ff6a00;
-            color: #0a0a0a;
+            background: #ff3b00;
+            color: #080606;
             font-size: 11px;
             font-weight: 700;
-            padding: 2px 12px;
-            border-radius: 30px;
-            text-transform: uppercase;
-            letter-spacing: 0.6px;
+            padding: 2px 14px;
+            border-radius: 40px;
+            letter-spacing: 0.5px;
+            text-shadow: 0 0 20px rgba(255, 59, 0, 0.2);
         }
 
         .btn .badge-gray {
             margin-left: auto;
-            background: rgba(255, 255, 255, 0.06);
-            color: #888;
+            background: rgba(255, 255, 255, 0.04);
+            color: #6a5a5a;
             font-size: 11px;
             font-weight: 500;
             padding: 2px 12px;
-            border-radius: 30px;
-            text-transform: uppercase;
-            letter-spacing: 0.6px;
+            border-radius: 40px;
+            letter-spacing: 0.5px;
         }
 
         .cta-btn {
             display: block;
             text-align: center;
-            background: #ff6a00;
-            color: #0a0a0a;
+            background: #ff3b00;
+            color: #080606;
             font-weight: 700;
             font-size: 17px;
             padding: 16px;
-            border-radius: 30px;
+            border-radius: 12px;
             text-decoration: none;
             letter-spacing: 0.5px;
-            transition: 0.25s ease;
-            box-shadow: 0 8px 24px rgba(255, 106, 0, 0.15);
-            margin-bottom: 6px;
+            transition: 0.25s;
+            margin-top: 18px;
+            box-shadow: 0 0 30px rgba(255, 59, 0, 0.15);
         }
 
         .cta-btn:hover {
-            background: #ff8c2a;
+            background: #ff5a2a;
             transform: translateY(-2px);
-            box-shadow: 0 12px 32px rgba(255, 106, 0, 0.25);
+            box-shadow: 0 0 50px rgba(255, 59, 0, 0.25);
         }
 
         .cta-btn.secondary {
-            background: rgba(255, 255, 255, 0.05);
-            color: #fff;
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(14, 10, 10, 0.6);
+            color: #ddd;
+            border: 1px solid #1e1210;
             box-shadow: none;
+            backdrop-filter: blur(2px);
         }
 
         .cta-btn.secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.15);
-            transform: translateY(-2px);
+            border-color: #ff3b00;
+            background: rgba(255, 59, 0, 0.04);
+            box-shadow: 0 0 30px rgba(255, 59, 0, 0.06);
         }
 
         .cta-note {
             text-align: center;
             font-size: 13px;
-            color: #666;
-            margin-bottom: 18px;
-        }
-
-        .toast {
-            position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%) translateY(100px);
-            background: #2a2a2a;
-            color: #fff;
-            padding: 14px 28px;
-            border-radius: 16px;
-            border: 1px solid #ff6a00;
-            font-size: 16px;
-            font-weight: 500;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
-            opacity: 0;
-            transition: all 0.4s ease;
-            pointer-events: none;
-            z-index: 999;
-        }
-
-        .toast.show {
-            opacity: 1;
-            transform: translateX(-50%) translateY(0);
+            color: #4a3a3a;
+            margin: 12px 0 20px;
+            letter-spacing: 0.5px;
         }
 
         .footer {
-            margin-top: 32px;
+            margin-top: 40px;
+            border-top: 1px solid #1a0e0c;
+            padding-top: 16px;
             text-align: center;
             font-size: 13px;
-            color: #555;
-            border-top: 1px solid rgba(255, 255, 255, 0.04);
-            padding-top: 20px;
+            color: #3a2a2a;
+            letter-spacing: 1px;
         }
 
         .footer a {
-            color: #777;
+            color: #6a5a5a;
             text-decoration: none;
             transition: 0.2s;
         }
 
         .footer a:hover {
-            color: #aaa;
+            color: #ff3b00;
+            text-shadow: 0 0 20px rgba(255, 59, 0, 0.2);
         }
 
-        @media (max-width: 500px) {
-            .glass {
-                padding: 30px 20px;
+        @media (max-width: 600px) {
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
             }
-            .title {
+            .content h1 {
                 font-size: 30px;
             }
             .btn {
@@ -283,107 +255,90 @@
 </head>
 <body>
 
-    <div class="glass">
+<div class="wrap">
+    <div class="header fade-item" style="animation-delay: 0.15s;">
+        <div class="logo">Шмурдяк <span>·</span> визитка</div>
+        <div class="nav">
+            <a href="https://alexunikum.github.io/shmurdyak-services/" target="_blank" rel="noopener noreferrer">Услуги</a>
+            <a href="https://alexunikum.github.io/faq/" target="_blank" rel="noopener noreferrer">FAQ</a>
+        </div>
+    </div>
 
-        <span class="avatar">🖤</span>
+    <div class="content">
+        <h1 class="fade-item" style="animation-delay: 0.2s;">вайбкодер <span>Шмурдяк</span></h1>
+        <div class="sub fade-item" style="animation-delay: 0.25s;">сайты, каталоги, генераторы — от 5 500 ₽</div>
 
-        <div class="title">Шмурдяк</div>
-        <div class="subtitle"><span>Вайб</span>кодер</div>
-
-        <!-- ===== СЕКЦИЯ 1 — КОНТАКТЫ ===== -->
         <div class="btn-group">
-            <div class="section-label fade-item" style="animation-delay: 0.1s;">📲 Контакты</div>
-
-            <a href="#" class="btn fade-item" id="discordBtn" style="animation-delay: 0.2s;">
+            <a href="#" class="btn fade-item" id="discordBtn" style="animation-delay: 0.3s;">
                 <span class="icon">💬</span>
                 <span>Discord</span>
                 <span class="badge">копировать</span>
             </a>
-            <a href="#" class="btn fade-item" id="telegramBtn" style="animation-delay: 0.3s;">
+            <a href="#" class="btn fade-item" id="telegramBtn" style="animation-delay: 0.35s;">
                 <span class="icon">✈️</span>
                 <span>Telegram</span>
                 <span class="badge">копировать</span>
             </a>
-            <a href="https://steamcommunity.com/id/alexunikum/" target="_blank" rel="noopener noreferrer" class="btn fade-item" id="steamBtn" style="animation-delay: 0.4s;">
+            <a href="https://steamcommunity.com/id/alexunikum/" target="_blank" rel="noopener noreferrer" class="btn fade-item" style="animation-delay: 0.4s;">
                 <span class="icon">🎮</span>
                 <span>Steam</span>
-                <span class="badge">копировать</span>
-            </a>
-        </div>
-
-        <!-- ===== СЕКЦИЯ 2 — САЙТЫ ===== -->
-        <div class="btn-group">
-            <div class="section-label fade-item" style="animation-delay: 0.5s;">🌐 Сайты</div>
-
-            <a href="https://alexunikum.github.io/faq/" target="_blank" rel="noopener noreferrer" class="btn fade-item" id="faqBtn" style="animation-delay: 0.6s;">
-                <span class="icon">❓</span>
-                <span>FAQ</span>
-                <span class="badge-gray">перейти</span>
-            </a>
-            <a href="https://alexunikum.github.io/shmurdyak-services/" target="_blank" rel="noopener noreferrer" class="btn fade-item" id="servicesBtn" style="animation-delay: 0.7s;">
-                <span class="icon">🛠️</span>
-                <span>Услуги</span>
                 <span class="badge-gray">перейти</span>
             </a>
         </div>
 
-        <!-- ===== CTA БЛОК ===== -->
-        <a href="https://t.me/Shprotina27" target="_blank" rel="noopener noreferrer" class="cta-btn fade-item" style="animation-delay: 0.8s;">
+        <a href="https://t.me/Shprotina27" target="_blank" rel="noopener noreferrer" class="cta-btn fade-item" style="animation-delay: 0.45s;">
             📩 Связаться по заказу в Telegram
         </a>
-        <a href="https://t.me/Shprotina109" target="_blank" rel="noopener noreferrer" class="cta-btn secondary fade-item" style="animation-delay: 0.9s;">
-            ✉️ Личный Telegram (не для заказов)
+        <a href="https://t.me/Shprotina109" target="_blank" rel="noopener noreferrer" class="cta-btn secondary fade-item" style="animation-delay: 0.5s;">
+            ✉️ Личный Telegram
         </a>
-
-        <div class="cta-note fade-item" style="animation-delay: 1s;">Отвечаю обычно в течение часа</div>
-
-        <div class="footer fade-item" style="animation-delay: 1.1s;">
-            <p>Сделано <a href="https://alexunikum.github.io/shmurdyak-main-site/" target="_blank" rel="noopener noreferrer">Шмурдяком</a> — все работы индивидуальны</p>
-        </div>
-
+        <div class="cta-note fade-item" style="animation-delay: 0.55s;">отвечаю в течение часа</div>
     </div>
 
-    <div id="toast" class="toast">✅ Скопировано!</div>
+    <div class="footer fade-item" style="animation-delay: 0.6s;">
+        <p>сделано <a href="https://alexunikum.github.io/shmurdyak-main-site/" target="_blank" rel="noopener noreferrer">Шмурдяком</a> — все работы индивидуальны</p>
+    </div>
+</div>
 
-    <script>
-        const contacts = {
-            discord: "ishak8_",
-            telegram: "@Shprotina109",
-            steam: "https://steamcommunity.com/id/alexunikum/"
-        };
+<div id="toast" style="position:fixed; bottom:30px; left:50%; transform:translateX(-50%) translateY(100px); background:#1a0e0c; color:#ddd; padding:12px 28px; border:1px solid #ff3b00; border-radius:12px; font-size:15px; opacity:0; transition:0.4s; pointer-events:none; z-index:999;">
+    ✅ Скопировано
+</div>
 
-        function showToast(text) {
-            const toast = document.getElementById('toast');
-            toast.textContent = '✅ ' + text;
-            toast.classList.add('show');
-            setTimeout(() => {
-                toast.classList.remove('show');
-            }, 1500);
-        }
+<script>
+    const contacts = {
+        discord: "ishak8_",
+        telegram: "@Shprotina109"
+    };
 
-        function copyText(text) {
-            navigator.clipboard.writeText(text).then(() => {
-                showToast('Скопировано: ' + text);
-            }).catch(() => {
-                showToast('❌ Не удалось скопировать');
-            });
-        }
+    function showToast(text) {
+        const toast = document.getElementById('toast');
+        toast.textContent = '✅ ' + text;
+        toast.style.opacity = '1';
+        toast.style.transform = 'translateX(-50%) translateY(0)';
+        setTimeout(() => {
+            toast.style.opacity = '0';
+            toast.style.transform = 'translateX(-50%) translateY(100px)';
+        }, 1500);
+    }
 
-        document.getElementById('discordBtn').addEventListener('click', function(e) {
-            e.preventDefault();
-            copyText(contacts.discord);
+    function copyText(text) {
+        navigator.clipboard.writeText(text).then(() => {
+            showToast('Скопировано: ' + text);
+        }).catch(() => {
+            showToast('❌ Не удалось скопировать');
         });
+    }
 
-        document.getElementById('telegramBtn').addEventListener('click', function(e) {
-            e.preventDefault();
-            copyText(contacts.telegram);
-        });
+    document.getElementById('discordBtn').addEventListener('click', function(e) {
+        e.preventDefault();
+        copyText(contacts.discord);
+    });
 
-        document.getElementById('steamBtn').addEventListener('click', function(e) {
-            e.preventDefault();
-            copyText(contacts.steam);
-        });
-    </script>
+    document.getElementById('telegramBtn').addEventListener('click', function(e) {
+        e.preventDefault();
+        copyText(contacts.telegram);
+    });
+</script>
 
 </body>
 </html>
